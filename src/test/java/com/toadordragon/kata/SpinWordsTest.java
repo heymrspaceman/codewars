@@ -30,4 +30,25 @@ public class SpinWordsTest {
     public void shouldNotSpinStringOfLengthFive() {
         assertThat(textProcessor.spinWords("abcde"), is("abcde"));
     }
+
+    @Test
+    public void shouldSpinStringOfLengthSix() {
+        assertThat(textProcessor.spinWords("abcdef"), is("fedcba"));
+    }
+
+    @Test
+    public void shouldSpinStringOfLengthSeven() {
+        assertThat(textProcessor.spinWords("abcdefg"), is("gfedcba"));
+    }
+
+    @Test
+    public void shouldSpinFirstStringWhenWholeStringSeparatedByWhitespace() {
+        assertThat(textProcessor.spinWords("a abcdef"), is("a fedcba"));
+    }
+
+    @Test
+    public void shouldSpinSecondStringWhenWholeStringSeparatedByWhitespace() {
+        assertThat(textProcessor.spinWords("abcdef a"), is("fedcba a"));
+
+    }
 }
