@@ -27,8 +27,8 @@ public class SpinWordsTest {
     }
 
     @Test
-    public void shouldNotSpinStringOfLengthFive() {
-        assertThat(textProcessor.spinWords("abcde"), is("abcde"));
+    public void shouldSpinStringOfLengthFive() {
+        assertThat(textProcessor.spinWords("abcde"), is("edcba"));
     }
 
     @Test
@@ -49,6 +49,15 @@ public class SpinWordsTest {
     @Test
     public void shouldSpinSecondStringWhenWholeStringSeparatedByWhitespace() {
         assertThat(textProcessor.spinWords("abcdef a"), is("fedcba a"));
+    }
 
+    @Test
+    public void shouldSpinWordsTreatingSquareBracketsAsWhitespace() {
+        assertThat(textProcessor.spinWords("<Just gniddik [ereht is llits] one more>"), is("<Just kidding [there is still] one more>"));
+    }
+
+    @Test
+    public void shouldSpinWordsTreatingRoundBracketsAsWhitespace() {
+        assertThat(textProcessor.spinWords("<Just gniddik (ereht is llits) one more>"), is("<Just kidding (there is still) one more>"));
     }
 }
