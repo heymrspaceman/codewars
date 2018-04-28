@@ -32,7 +32,7 @@ public class NthSeriesTest {
 
     @Test
     public void shouldNthSeriesFiveReturnCorrectResult() {
-        assertThat(nth.sumSeries(6), is("1.57"));
+        assertThat(nth.sumSeries(5), is("1.57"));
     }
 
     @Test
