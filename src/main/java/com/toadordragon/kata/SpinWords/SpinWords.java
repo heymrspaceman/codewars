@@ -1,10 +1,22 @@
-package com.toadordragon.kata;
+package com.toadordragon.kata.SpinWords;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class SpinWords {
-    public String spinWords(String sentence) {
+    public String processText(String sentence) {
+        return doTheSpin(sentence);
+    }
+
+    public void processFile(SpinFile input, SpinFile outputFile) {
+        String inputText = input.read();
+
+        String spinnedText = doTheSpin(inputText);
+
+        outputFile.write(spinnedText);
+    }
+
+    private String doTheSpin(String sentence) {
         return Arrays.asList(sentence.split(" ")).stream().map(SpinWords::spinSingleString).collect(Collectors.joining(" "));
     }
 
