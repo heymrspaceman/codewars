@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 import static org.hamcrest.core.Is.is;
 
-public class MyStepdefs {
+public class SpinWordsStepDefinitions {
 
     SpinWords spinWords;
     String words;
